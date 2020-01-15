@@ -16,7 +16,7 @@ public class Subsequence {
     public boolean find(List x, List y) {
         // TODO: Implement the logic here
         if (x==null || y == null) throw new IllegalArgumentException();
-        if (x.isEmpty()&& !y.isEmpty()) return true;
+        if (x.isEmpty()) return true;
         int i = 0;
         for (int j = 0; j < y.size(); j++) {
             if (x.get(i).equals(y.get(j))){
