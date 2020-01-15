@@ -39,10 +39,8 @@ public class PyramidBuilder {
                     y++;
                     numberFromList++;
                 }
-
             }
         }
-
         return pyramid;
     }
 }

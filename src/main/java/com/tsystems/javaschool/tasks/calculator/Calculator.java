@@ -28,7 +28,7 @@ public class Calculator {
         return Double.toString(a);
     }
 
-    public boolean isCorrectProblem(String st) {
+    private boolean isCorrectProblem(String st) {
         if (st==null || st.length()==0) return false;
         if (Pattern.matches("[+,-,*,/,(]", st.substring(st.length() - 1))) return false;
         if (Pattern.matches("[+,*,/,)]", st.substring(0, 1))) return false;
@@ -45,13 +45,11 @@ public class Calculator {
                 if (Pattern.matches("[+,\\-,*,/,.]", st.substring(i - 1, i))) return false;
             }
         }
-
         if (st.contains(",")) return false;
-
         return true;
     }
 
-    public String stringToRPN(String problem) {
+    private String stringToRPN(String problem) {
         String rpn = "";
         Stack<Character> stack = new Stack<>();
 
@@ -79,11 +77,10 @@ public class Calculator {
             rpn += " ";
             rpn += stack.pop();
         }
-
         return rpn;
     }
 
-    public double RPNToSolution(String rpn) {
+    private double RPNToSolution(String rpn) {
         String number = "";
         Stack<Double> stack = new Stack<>();
         for (int i = 0; i < rpn.length(); i++) {
@@ -118,12 +115,11 @@ public class Calculator {
         return stack.pop();
     }
 
-    public int getPriority(char symbol) {
+    private int getPriority(char symbol) {
         if (symbol == '*' || symbol == '/') return 3;
         else if (symbol == '+' || symbol == '-') return 2;
         else if (symbol == '(') return 1;
         else if (symbol == ')') return -1;
         else return 0;
     }
-
 }
